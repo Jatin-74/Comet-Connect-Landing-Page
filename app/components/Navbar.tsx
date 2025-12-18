@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className="fixed top-6 left-0 right-0 z-50 flex justify-between px-6 md:px-12 pointer-events-none">
       
-      {/* LEFT ISLAND: The Brand */}
+     
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -21,7 +21,7 @@ export default function Navbar() {
         </span>
       </motion.div>
 
-      {/* RIGHT ISLAND: The Action Buttons */}
+    
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}

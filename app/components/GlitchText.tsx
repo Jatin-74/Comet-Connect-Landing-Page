@@ -5,7 +5,7 @@ import { useState, useEffect, useRef } from "react";
 interface GlitchTextProps {
   text: string;
   className?: string;
-  trigger?: boolean; // <--- NEW PROP to force animation
+  trigger?: boolean; 
 }
 
 const CHARS = "!@#$%^&*():{};|,.<>/?";
@@ -40,7 +40,7 @@ export default function GlitchText({ text, className = "", trigger }: GlitchText
     }, 30);
   };
 
-  // NEW: Watch for the external trigger (Card Hover)
+  
   useEffect(() => {
     if (trigger) {
       scramble();

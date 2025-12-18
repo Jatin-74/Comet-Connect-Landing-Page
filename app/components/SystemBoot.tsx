@@ -19,15 +19,15 @@ export default function SystemBoot() {
   useEffect(() => {
     let delay = 0;
     
-    // Add lines one by one
+
     bootText.forEach((line, index) => {
-      delay += Math.random() * 300 + 200; // Random typing speed
+      delay += Math.random() * 300 + 200; 
       setTimeout(() => {
         setLines((prev) => [...prev, line]);
       }, delay);
     });
 
-    // Finish loading
+    
     setTimeout(() => {
       setLoading(false);
     }, delay + 800);
@@ -39,7 +39,7 @@ export default function SystemBoot() {
       {loading && (
         <motion.div
           className="fixed inset-0 z-[99999] bg-black flex items-center justify-center font-mono text-green-500 text-xs md:text-sm"
-          exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} // Cool exit animation
+          exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} 
           transition={{ duration: 0.8 }}
         >
           <div className="w-80">

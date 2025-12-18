@@ -12,13 +12,13 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        tech: ['var(--font-tech)'], // Use with font-tech
-        body: ['var(--font-body)'], // Use with font-body
+        tech: ['var(--font-tech)'], 
+        body: ['var(--font-body)'], 
       },
       colors: {
         suronex: {
-          green: "#22c55e", // Hacker Green
-          dark: "#050505",  // OLED Black
+          green: "#22c55e", 
+          dark: "#050505",  
         }
       },
     },

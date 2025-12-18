@@ -1,18 +1,15 @@
 "use client";
 
-// 1. REMOVE THIS LINE IF YOU SEE IT:
-// import Spline from '@splinetool/react-spline'; <--- DELETE THIS
-
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react"; 
 import GlitchText from "./GlitchText";
-import dynamic from 'next/dynamic'; // <--- Keep this
+import dynamic from 'next/dynamic'; 
 
-// 2. DEFINE SPLINE HERE (Dynamically)
+
 const Spline = dynamic(() => import('@splinetool/react-spline'), {
-  ssr: false, // This prevents server-side rendering lag
+  ssr: false, 
   loading: () => (
-    // Tiny placeholder while loading
+    
     <div className="w-full h-full flex items-center justify-center opacity-20">
        <span className="text-green-500 font-mono text-xs animate-pulse">LOADING_MODEL...</span>
     </div>
@@ -34,9 +31,9 @@ export default function Hero() {
   return (
     <section className="relative w-full h-screen bg-transparent overflow-hidden flex flex-col md:flex-row items-center">
       
-      {/* 1. BACKGROUND GRID (Removed per your request) */}
+      
 
-      {/* 2. LEFT CONTENT */}
+     
       <div className="z-10 w-full md:w-1/2 px-6 md:pl-24 pt-20 flex flex-col justify-center h-full pointer-events-none">
         <div className="pointer-events-auto">
           
@@ -96,10 +93,9 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* 3. RIGHT SIDE: 3D ROBOT */}
+      
       <div className="absolute top-0 right-0 w-full md:w-[60%] h-full z-0">
         <div className="w-full h-full">
-           {/* MAKE SURE THIS URL IS CORRECT */}
            <Spline scene="https://prod.spline.design/Gyik1BJ91KLHO5K8/scene.splinecode" />
         </div>
         <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-transparent" />

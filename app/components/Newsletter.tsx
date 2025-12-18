@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Mail } from "lucide-react";
-import GlitchText from "./GlitchText"; // <--- 1. IMPORT THIS
+import GlitchText from "./GlitchText"; 
 
 export default function Newsletter() {
   return (
@@ -18,7 +18,7 @@ export default function Newsletter() {
 
         <div className="relative z-10 max-w-lg mx-auto space-y-4 text-center">
           <h2 className="text-3xl md:text-4xl font-tech font-bold text-green-500 tracking-tight">
-            {/* 2. GLITCH ADDED HERE */}
+          
             <GlitchText text="REQUEST_EARLY_ACCESS" />
           </h2>
           <p className="text-neutral-400 font-body text-sm">
