@@ -86,10 +86,7 @@ export default function Features() {
               // ARCHITECTURE_OVERVIEW
             </p>
           </div>
-          <div className="flex items-center gap-2 text-green-500/60 font-mono text-xs bg-green-900/10 px-3 py-1 rounded border border-green-500/20">
-             <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-             ALL SYSTEMS OPTIMAL
-          </div>
+          
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
