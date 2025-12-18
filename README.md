@@ -23,19 +23,22 @@ Design Philosophy & Key Features
 
 The design goal was to create a "Security Architecture" aesthetic, dark, minimal, and industrial, while maintaining 60FPS performance on all devices.
 
-1. Interactive 3D Integration
+1. Interactive 3D Integration:
 The "Watcher" Droid: A Spline 3D model that tracks the user's cursor in real-time.
 
-2. High-Performance Matrix Rain
+2. High-Performance Matrix Rain:
+   
 A custom MatrixRain.tsx component built on HTML5 Canvas.
 Unlike heavy video backgrounds, it ensure that it scales to any screen size without pixelation or high memory usage.
 
-3. Mobile-First Optimization
+3. Mobile-First Optimization:
+   
 Adaptive Layouts: The layout shifts from a "Side-by-Side" view on desktop to a "Stacked/Overlay" view on mobile.
 Visual Hierarchy: On mobile, the 3D robot is dimmed, and positioned as a background layer to ensure text readability remains the priority.
 Touch Optimizations: Heavy glass blurs and custom cursors are disabled on touch devices to preserve battery life and scroll performance.
 
-4. Glassmorphism & Glitch UI
+4. Glassmorphism & Glitch UI:
+   
 Custom GlitchText components add a cyber-security feel to headers.
 UI elements use hardware-accelerated CSS backdrop-filter for the frosted glass look, floating above the matrix background.
 
