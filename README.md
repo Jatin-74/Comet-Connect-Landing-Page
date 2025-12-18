@@ -24,6 +24,7 @@ Design Philosophy & Key Features
 The design goal was to create a "Security Architecture" aesthetic, dark, minimal, and industrial, while maintaining 60FPS performance on all devices.
 
 1. Interactive 3D Integration:
+   
 The "Watcher" Droid: A Spline 3D model that tracks the user's cursor in real-time.
 
 2. High-Performance Matrix Rain:
