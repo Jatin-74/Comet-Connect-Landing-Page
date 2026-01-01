@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import CustomCursor from "./components/CustomCursor";
 import { Analytics } from "@vercel/analytics/react"; 
-import Footer from "./components/Footer";// 👈 IMPORT THIS
+import LegalFooter from "./components/LegalFooter";// 👈 IMPORT THIS
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +22,7 @@ export default function RootLayout({
       <body className={`${inter.className} bg-black text-white cursor-none overflow-x-hidden selection:bg-green-500 selection:text-black`}>
         <CustomCursor />
         {children}
-        <Footer />
+        <LegalFooter />
         <Analytics /> {/* 👈 ADD THIS COMPONENT */}
       </body>
     </html>

@@ -97,7 +97,7 @@ const LEGAL_CONTENT = {
 
 type PolicyType = 'TERMS' | 'PRIVACY' | 'USE' | null;
 
-export default function Footer() {
+export default function LegalFooter() {
   const [activePolicy, setActivePolicy] = useState<PolicyType>(null);
 
   const downloadLegalDoc = (filename: string, content: string) => {
@@ -112,7 +112,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="fixed bottom-0 left-0 w-full bg-black/90 backdrop-blur-xl border-t border-green-500/30 z-[100] py-4">
+      <footer className="fixed bottom-0 left-0 w-full bg-black/90 backdrop-blur-xl border-t border-green-500/30 z-[999] py-4">
         <div className="max-w-7xl mx-auto px-6 py-12 md:px-20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             
