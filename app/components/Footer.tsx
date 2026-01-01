@@ -112,7 +112,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="w-full border-t border-white/5 bg-black/80 backdrop-blur-xl mt-20 relative z-30">
+      <footer className="fixed bottom-0 left-0 w-full border-t border-white/5 bg-black/90 backdrop-blur-xl z-50">
         <div className="max-w-7xl mx-auto px-6 py-12 md:px-20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             
