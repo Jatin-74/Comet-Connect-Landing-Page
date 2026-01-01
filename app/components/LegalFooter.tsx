@@ -112,7 +112,7 @@ export default function LegalFooter() {
 
   return (
     <>
-      <footer className="fixed bottom-0 left-0 w-full bg-black/90 backdrop-blur-xl border-t border-green-500/30 z-[999] py-4">
+      <footer className="relative w-full bg-black border-t border-white/10 z-50 py-0.1 mt-auto">
         <div className="max-w-7xl mx-auto px-6 py-12 md:px-20">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             
