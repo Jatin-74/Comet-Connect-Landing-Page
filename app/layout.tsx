@@ -1,28 +1,14 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, Inter } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
-
-
-import Footer from "./components/Footer";
-import MatrixRain from "./components/MatrixRain";
 import CustomCursor from "./components/CustomCursor";
-import SystemBoot from "./components/SystemBoot"; 
+import { Analytics } from "@vercel/analytics/react"; // 👈 IMPORT THIS
 
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"], 
-  variable: '--font-tech',
-  weight: ['300', '400', '500', '600', '700']
-});
-
-const inter = Inter({ 
-  subsets: ["latin"], 
-  variable: '--font-body',
-  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900']
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Suronex | System Active",
-  description: "Enterprise security architecture.",
+  title: "Comet Connect", 
+  description: "Connect Without Limits. The ultimate context migration protocol.",
 };
 
 export default function RootLayout({
@@ -32,18 +18,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${spaceGrotesk.variable} ${inter.variable} bg-black text-white antialiased overflow-x-hidden cursor-none`}>
-        
-        <SystemBoot />
-
-        
+      <body className={`${inter.className} bg-black text-white cursor-none overflow-x-hidden selection:bg-green-500 selection:text-black`}>
         <CustomCursor />
-        <MatrixRain />
-
-        
-        
         {children}
-        <Footer />
+        <Analytics /> {/* 👈 ADD THIS COMPONENT */}
       </body>
     </html>
   );
