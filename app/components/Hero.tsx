@@ -1,5 +1,7 @@
 "use client";
+
 import { track } from '@vercel/analytics';
+import { useRouter } from "next/navigation"; // Import exists
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react"; 
 import GlitchText from "./GlitchText";
@@ -235,6 +237,8 @@ const CONTENT_JS_CONTENT = `//Comet Relay v4.1 (CSP Safe)
 // --- END FILE CONTENTS ---
 
 export default function Hero() {
+  const router = useRouter(); // 👈 ADDED: Initialize the Router
+  
   const [trigger, setTrigger] = useState(false);
   const [showLegalModal, setShowLegalModal] = useState(false);
   const [agreed, setAgreed] = useState(false);
@@ -254,7 +258,9 @@ export default function Hero() {
   const executeDownload = async () => {
     try {
       const zip = new JSZip();
-      track('Extension Downloaded');
+      
+      track('Extension Downloaded'); // Vercel Analytics Trigger
+      
       // FIX: Added files directly to root (No folder nesting)
       zip.file("manifest.json", MANIFEST_CONTENT);
       zip.file("content.js", CONTENT_JS_CONTENT);
@@ -271,6 +277,14 @@ export default function Hero() {
       
       setShowLegalModal(false);
       setAgreed(false); 
+
+      // 👇 ADDED: Redirect to Briefing Page (Analytics "View" Count)
+      // -----------------------------------------------------------
+      setTimeout(() => {
+        router.push("/briefing"); 
+      }, 1000);
+      // -----------------------------------------------------------
+
     } catch (error) {
       console.error("Download failed:", error);
       alert("System Error: Download Protocol Failed.");
