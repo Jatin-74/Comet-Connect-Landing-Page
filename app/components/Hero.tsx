@@ -54,7 +54,7 @@ export default function Hero() {
               className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-green-500 pr-2 align-top w-fit"
               style={{ borderRightColor: "transparent" }}
             >
-              SECURE
+              COMET
             </motion.span>
             <br />
             <motion.span 
@@ -63,7 +63,7 @@ export default function Hero() {
               transition={{ duration: 1.5, delay: 1, type: "tween", ease: "linear" }} 
               className="inline-block overflow-hidden whitespace-nowrap border-r-4 border-green-500 text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-green-700 pr-2 pb-2"
             >
-              <GlitchText text="THE THREAT" trigger={trigger} />
+              <GlitchText text="CONNECT" trigger={trigger} />
             </motion.span>
           </h1>
           
@@ -73,7 +73,7 @@ export default function Hero() {
               transition={{ delay: 0.4 }}
               className="font-body text-neutral-400 text-lg md:text-xl max-w-md mb-10 border-l-2 border-green-500/50 pl-6"
           >
-            Predictive AI compliance. Detect zero-day vulnerabilities before they execute.
+            Connect Without Limits.
           </motion.p>
 
           <motion.div 

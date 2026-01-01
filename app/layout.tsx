@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Space_Grotesk, Inter } from "next/font/google";
 import "./globals.css";
 
-import Navbar from "./components/Navbar";
+
 import Footer from "./components/Footer";
 import MatrixRain from "./components/MatrixRain";
 import CustomCursor from "./components/CustomCursor";
@@ -41,7 +41,7 @@ export default function RootLayout({
         <MatrixRain />
 
         
-        <Navbar />
+        
         {children}
         <Footer />
       </body>
