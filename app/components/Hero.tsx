@@ -1,7 +1,7 @@
 "use client";
 
 import { track } from '@vercel/analytics';
-import { useRouter } from "next/navigation"; // Import exists
+import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react"; 
 import GlitchText from "./GlitchText";
@@ -237,7 +237,7 @@ const CONTENT_JS_CONTENT = `//Comet Relay v4.1 (CSP Safe)
 // --- END FILE CONTENTS ---
 
 export default function Hero() {
-  const router = useRouter(); // 👈 ADDED: Initialize the Router
+  const router = useRouter(); 
   
   const [trigger, setTrigger] = useState(false);
   const [showLegalModal, setShowLegalModal] = useState(false);
@@ -252,6 +252,10 @@ export default function Hero() {
   }, []);
 
   const initiateDownloadFlow = () => {
+    if (window.innerWidth < 768) {
+        alert("⚠️ SYSTEM RESTRICTION:\n\nComet Connect is a desktop browser extension.\nPlease access this terminal via a Computer to initialize.");
+        return;
+    }
     setShowLegalModal(true);
   };
 
@@ -259,9 +263,8 @@ export default function Hero() {
     try {
       const zip = new JSZip();
       
-      track('Extension Downloaded'); // Vercel Analytics Trigger
+      track('Extension Downloaded'); // Vercel Analytics
       
-      // FIX: Added files directly to root (No folder nesting)
       zip.file("manifest.json", MANIFEST_CONTENT);
       zip.file("content.js", CONTENT_JS_CONTENT);
         
@@ -278,12 +281,9 @@ export default function Hero() {
       setShowLegalModal(false);
       setAgreed(false); 
 
-      // 👇 ADDED: Redirect to Briefing Page (Analytics "View" Count)
-      // -----------------------------------------------------------
       setTimeout(() => {
         router.push("/briefing"); 
       }, 1000);
-      // -----------------------------------------------------------
 
     } catch (error) {
       console.error("Download failed:", error);

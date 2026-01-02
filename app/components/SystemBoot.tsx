@@ -1,62 +1,65 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 
-export default function SystemBoot() {
-  const [loading, setLoading] = useState(true);
+interface SystemBootProps {
+  onComplete: () => void;
+}
+
+export default function SystemBoot({ onComplete }: SystemBootProps) {
   const [lines, setLines] = useState<string[]>([]);
-
+  
   const bootText = [
-    "INITIALIZING CORE KERNEL...",
-    "LOADING NEURAL NETWORKS...",
-    "CONNECTING TO SECURE NODES...",
-    "ENCRYPTING TRAFFIC...",
-    "SYSTEM OPTIMAL.",
-    "WELCOME USER."
+    "INITIALIZING_KERNEL...",
+    "LOADING_NEURAL_NET...",
+    "BYPASSING_FIREWALLS...",
+    "ESTABLISHING_SECURE_CONNECTION...",
+    "ACCESS_GRANTED.", 
+    "WELCOME_USER."
   ];
 
   useEffect(() => {
     let delay = 0;
-    
+    let totalTime = 0;
 
-    bootText.forEach((line, index) => {
-      delay += Math.random() * 300 + 200; 
+    bootText.forEach((text, index) => {
+      const stepDelay = Math.random() * 300 + 400; 
+      delay += stepDelay;
+      totalTime = delay;
+
       setTimeout(() => {
-        setLines((prev) => [...prev, line]);
+        setLines((prev) => [...prev, text]);
       }, delay);
     });
 
-    
     setTimeout(() => {
-      setLoading(false);
-    }, delay + 800);
+      onComplete();
+    }, totalTime + 1500); // Increased slightly for better readability
 
-  }, []);
+  }, [onComplete]);
 
   return (
-    <AnimatePresence>
-      {loading && (
-        <motion.div
-          className="fixed inset-0 z-[99999] bg-black flex items-center justify-center font-mono text-green-500 text-xs md:text-sm"
-          exit={{ opacity: 0, y: -20, filter: "blur(10px)" }} 
-          transition={{ duration: 0.8 }}
-        >
-          <div className="w-80">
-            {lines.map((line, i) => (
-              <div key={i} className="mb-1">
-                <span className="opacity-50 mr-2">{`>`}</span>
-                {line}
-              </div>
-            ))}
-            <motion.span 
-              animate={{ opacity: [0, 1, 0] }} 
-              transition={{ repeat: Infinity, duration: 0.5 }}
-              className="inline-block w-2 h-4 bg-green-500 ml-1 align-middle"
-            />
-          </div>
-        </motion.div>
-      )}
-    </AnimatePresence>
+    // 👇 CHANGED: items-center justify-center centers the content perfectly
+    <div className="fixed inset-0 bg-black z-[99999] flex items-center justify-center font-mono text-green-500 text-sm md:text-base cursor-none pointer-events-none">
+      <div className="text-center"> {/* 👈 Added text-center for the line alignment */}
+        {lines.map((line, i) => (
+          <motion.div 
+            key={i}
+            initial={{ opacity: 0, y: 10 }} // Changed x: -10 to y: 10 for a smoother upward fade
+            animate={{ opacity: 1, y: 0 }}
+            className="mb-2"
+          >
+            <span className="opacity-50 mr-2">{`>`}</span>
+            {line}
+          </motion.div>
+        ))}
+        {/* Cursor follows the last line in the center */}
+        <motion.span 
+          layout
+          className="inline-block w-2 h-4 bg-green-500 animate-pulse mt-2" 
+        />
+      </div>
+    </div>
   );
 }
